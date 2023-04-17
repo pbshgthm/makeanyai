@@ -15,7 +15,7 @@ export function Header(props: {
 
   return (
     <div className="text-white/50 bg-purple-200 bg-opacity-[6%] flex flex-col gap-4 p-4 rounded-2xl w-full" >
-      <input className="outline-none text-white/40 text-lg w-full bg-black/20 bg-opacity-[2%] rounded-xl h-12 px-4" value={props.book.name} type="text" onChange={rename} />
+      <input className="outline-none text-white/40 text-sm font-normal leading-5 w-full bg-black/20 bg-opacity-[2%] rounded-xl h-12 px-4" value={props.book.name} type="text" onChange={rename} />
       <div className="flex flex-col gap-2">
         <div className="text-xs text-white/30 capitalize">
           Description
@@ -33,7 +33,7 @@ export function Header(props: {
           {/* <button className="bg-white/5 hover:bg-white/20 text-white/40 hover:text-white/50 rounded-full px-4 py-2 text-sm" onClick={props.clearBook}>
             Generate
           </button> */}
-          <button className="text-white/20 hover:text-white/50 rounded-full px-4 py-2 text-sm" onClick={props.clearBook}>
+          <button className="bg-white/5 hover:bg-white/20 text-white/40 hover:text-white/50 rounded-full px-4 py-2 text-sm" onClick={props.clearBook}>
             Clear
           </button>
         </div>

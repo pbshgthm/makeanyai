@@ -13,23 +13,23 @@ function BookItem(props: {
 }) {
   return (
     <Link href={props.book.id}>
-      <div className={`flex flex-row gap-3 items-center p-2 px-4 rounded-xl cursor-pointer group ${props.isSelected ? 'bg-purple-400/10 text-white/60' : 'hover:bg-white/5'}`}>
-        <div className="flex flex-col flex-grow gap-0.5">
-          <div className="text-white/40 text-sm">
-            {truncate(props.book.name, 24)}
-          </div>
-          <div className="text-white/30 text-[10px]">
-            {props.book.createdAt}
-          </div>
+      <div className={`flex flex-row gap-3 justify-between items-center py-2 px-2 rounded-lg cursor-pointer ${props.isSelected ? 'bg-purple-400/10 text-white/60 group' : 'hover:bg-white/5'}`}>
+        <div className="flex flex-col flex-shrink gap-1 truncate w-full h-9">
+            <div className="text-white/40 text-xs flex flex-shrink w-full truncate">
+             <div className="truncate"> {props.book.name}</div>
+            </div>
+            <div className="text-white/30 text-xs flex flex-shrink font-light truncate">
+              {props.book.createdAt}
+            </div>
         </div>
         {
           props.isSelected &&
-          <div className="bg-white/5 w-8 h-8 rounded-lg text-center text-white/30 opacity-0 justify-center items-center text-sm group-hover:flex hover:bg-red-400/10 hover:bg-red-400 group-hover:opacity-100" onClick={(e) => {
+          <div className=" bg-white/5 min-w-9 w-9 h-9 rounded-lg text-center text-white/30 opacity-0 justify-center items-center text-sm hidden group-hover:flex hover:bg-red-400/10 hover:bg-red-400 group-hover:opacity-100" onClick={(e) => {
             e.preventDefault()
             e.stopPropagation()
             props.removeBook()
           }}>
-            x
+            <div className="w-9"> x </div>
           </div>
         }
       </div>
@@ -72,13 +72,18 @@ export function BookList() {
   }
 
   return (
-    <div className="py-2 h-full flex flex-col gap-4 flex-grow overflow-hidden">
-      <div className="px-8">
-        <button className="w-full bg-white/5 text-white/40 hover:bg-purple-400/20 hover:text-white/60 p-2 rounded-lg" onClick={addBook}>New Book</button>
+    <div className="h-full flex flex-col gap-2 flex-grow overflow-hidden">
+      
+      <div className="px-4 ">
+        <div className="flex flex-row hover:bg-black/10 justify-start items-center px-2 py-2 rounded-lg gap-2 border border-white/5">
+          <div className=" text-center text-white/30 flex text-xs">+
+          </div>
+          <button className=" text-white/40 text-left hover:text-white/60 text-xs rounded-lg" onClick={addBook}>Create a new Book</button>
+        </div>
       </div>
       {
         books &&
-        <div className="px-6 flex flex-col gap-2 overflow-scroll flex-grow min-h-0">
+        <div className="px-4 flex flex-col gap-2 overflow-scroll flex-grow min-h-0">
           {books.map((book) =>
             <BookItem key={book.id} book={book} isSelected={bookId === book.id} removeBook={
               () => { removeBook(book.id) }}

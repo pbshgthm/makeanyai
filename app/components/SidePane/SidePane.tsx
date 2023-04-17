@@ -16,9 +16,9 @@ export function SidePane() {
   }
 
   return (
-    <div className="w-[360px] h-screen p-12 pr-0 flex-none">
-      <div className="bg-white/[3%] w-full h-full rounded-2xl flex flex-col gap-4">
-        <div className="p-8 pb-4 flex flex-row justify-between align-center">
+    <div className="w-[320px] h-screen p-12 pr-0 flex-none">
+      <div className="bg-white/5 w-full h-full rounded-2xl flex flex-col ">
+        <div className="py-6 pl-7 pr-6 flex flex-row justify-between align-center">
           <Link href="/">
             <div className="text-white/50 text-2xl font-thin">
               make<span className="text-purple-400/60">any</span>.ai

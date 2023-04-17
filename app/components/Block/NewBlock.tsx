@@ -68,7 +68,7 @@ export function AddBlock(props: {
       }`} onClick={handleClick} onBlur={handleBlur}>
       {isActive
         ? <div className="flex flex-col gap-4">
-          <input ref={inputRef} className="bg-black/20 w-full text-white/30 outline-none p-4 rounded-xl" onChange={(e) => setQuery(e.target.value)} />
+          <input ref={inputRef} className="bg-black/20 w-full text-white/30 outline-none p-4 rounded-xl placeholder:text-white/40" placeholder="Enter block name here" onChange={(e) => setQuery(e.target.value)} />
           <div className="grid grid-cols-3 gap-2 capitalize max-h-36 overflow-scroll" autoFocus>
             {blocks.filter(block => block.includes(query)).map((block) => (
               <BlockButton
