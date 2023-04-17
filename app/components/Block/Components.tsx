@@ -148,7 +148,8 @@ export function TextInput(props: {
   onChange: (text: string) => void
 }) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    props.onChange(e.target.value)
+    const value = e.target.value.replace(/[^a-zA-Z0-9_]/g, '').toLowerCase()
+    props.onChange(value)
   }
 
   return (
@@ -162,7 +163,7 @@ export function TextInput(props: {
   )
 }
 
-export function BLockHeader(props: {
+export function BlockHeader(props: {
   block: IBlock
   pos: number
   isSaved: boolean
@@ -191,7 +192,7 @@ export function BLockHeader(props: {
       </div>
       <div className="flex flex-row gap-4">
         <div className="border-none text-sm rounded-md text-white/40 flex items-center justify-center h-8 capitalize">
-          {props.block.savedName?.replace(/_/g, ' ') || props.block.type}
+          {props.block.savedName?.replace(/_/g, ' ') || props.block.type.replace(/_/g, ' ')}
         </div>
         <TextInput onChange={props.rename} value={props.block.name} />
       </div>

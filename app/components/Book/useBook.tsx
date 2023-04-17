@@ -154,7 +154,7 @@ export function useBook(props: {
     const newBlock: IBlock = deepCopy(emptyBlock)
 
     if (isSaved) {
-      newBlock.name = `${'block_' + nanoid().slice(0, 2).toString()}`
+      newBlock.name = `${'block_' + nanoid().slice(0, 4).toString().toLowerCase()}`
       newBlock.savedName = name
       newBlock.type = saved?.type as EBlockType
       newBlock.config = saved?.config as IBlockConfig
