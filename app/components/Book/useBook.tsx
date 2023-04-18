@@ -1,7 +1,6 @@
 import { db } from "@/lib/db"
 import { emptyBlock } from "@/lib/default"
 import { runAskAI, runCallAPI, runFormatText } from "@/lib/func"
-import { savedBlocks } from "@/lib/saved"
 import { EBlockState, EBlockType, IBlock, IBlockConfig, IBlockSaved } from "@/lib/types"
 import { deepCopy, getVars, openAICall, sleep } from "@/lib/utils"
 import { useLiveQuery } from "dexie-react-hooks"
@@ -14,6 +13,10 @@ export function useBook(props: {
   const book = useLiveQuery(
     () => db.books.get(props.bookId),
     [props.bookId]
+  )
+
+  const savedBlocks = useLiveQuery(
+    () => db.blocks.toArray()
   )
 
   async function toggleSave(block: IBlock) {
@@ -144,14 +147,14 @@ export function useBook(props: {
   }
 
   async function addBlock(pos: number, name: string) {
-    if (!book) return
+    if (!book || !savedBlocks) return
     const isSaved = !Object.values(EBlockType).includes(name as EBlockType)
     const saved = savedBlocks.find((b: IBlockSaved) => b.name === name)
 
     const newBlock: IBlock = deepCopy(emptyBlock)
 
     if (isSaved) {
-      newBlock.name = `${'block_' + nanoid().slice(0, 2).toString()}`
+      newBlock.name = `${'block_' + nanoid().slice(0, 4).toString().toLowerCase()}`
       newBlock.savedName = name
       newBlock.type = saved?.type as EBlockType
       newBlock.config = saved?.config as IBlockConfig

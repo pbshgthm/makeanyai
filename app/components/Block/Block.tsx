@@ -1,7 +1,7 @@
 import { EBlockState, IBlock, IBlockConfig } from "@/lib/types"
 import { useEffect, useRef } from "react"
 import { BlockIO } from "./BlockIO"
-import { BLockHeader } from "./Components"
+import { BlockHeader } from "./Components"
 import { AddBlock } from "./NewBlock"
 
 
@@ -49,7 +49,7 @@ export function Block(props: {
     <div ref={blockRef} className="block cursor-grab">
       <div className="flex flex-col gap-2 w-full">
         <div className="w-full bg-white/5 rounded-2xl p-4 flex flex-col relative gap-4">
-          <BLockHeader block={props.block}
+          <BlockHeader block={props.block}
             pos={props.pos}
             handleRemove={handleRemove}
             rename={props.renameBlock}

@@ -126,7 +126,7 @@ export function BlockState(props: { state: EBlockState }) {
     [EBlockState.Running]: 'bg-purple-400/80',
   }
   return (
-    <div className={`text-[10px] ${props.state === EBlockState.Running ? 'bg-white/0 text-white/50' : 'bg-white/0 text-white/30'} flex flex-row gap-1 rounded-full items-center px-2.5 h-6`}>
+    <div className={`text-xs font-light ${props.state === EBlockState.Running ? 'bg-white/0 text-white/50' : 'bg-white/0 text-white/30'} flex flex-row gap-1 rounded-full items-center px-1 py-2`}>
       <div className={`${stateColor[props.state]} w-1.5 h-1.5 rounded-full`} />
       <div>{props.state}</div>
     </div>
@@ -137,7 +137,7 @@ export function BlockRun(props: {
   runBlock: () => Promise<void>
 }) {
   return (
-    <div className={`text-[10px] bg-purple-400/10 text-white/40 hover:text-white/60 hover:bg-purple-400/30 cursor-pointer flex flex-row gap-1 rounded-full items-center px-2.5 h-6`} onClick={props.runBlock}>
+    <div className={`text-xs bg-purple-400/10 text-white/40 hover:text-white/60 hover:bg-purple-400/30 cursor-pointer flex flex-row gap-1 rounded-full items-center px-4 py-2`} onClick={props.runBlock}>
       Run
     </div>
   )
@@ -148,7 +148,8 @@ export function TextInput(props: {
   onChange: (text: string) => void
 }) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    props.onChange(e.target.value)
+    const value = e.target.value.replace(/[^a-zA-Z0-9_]/g, '').toLowerCase()
+    props.onChange(value)
   }
 
   return (
@@ -162,7 +163,7 @@ export function TextInput(props: {
   )
 }
 
-export function BLockHeader(props: {
+export function BlockHeader(props: {
   block: IBlock
   pos: number
   isSaved: boolean
@@ -191,7 +192,7 @@ export function BLockHeader(props: {
       </div>
       <div className="flex flex-row gap-4">
         <div className="border-none text-sm rounded-md text-white/40 flex items-center justify-center h-8 capitalize">
-          {props.block.savedName?.replace(/_/g, ' ') || props.block.type}
+          {props.block.savedName?.replace(/_/g, ' ') || props.block.type.replace(/_/g, ' ')}
         </div>
         <TextInput onChange={props.rename} value={props.block.name} />
       </div>
