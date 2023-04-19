@@ -267,7 +267,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Get list of recipes for {Get_weather} weather for {Get_user_type}. \nConsider {Get_user_pref}.\nDon't number the list."
+            "Get list of recipes for {get_weather} weather for {get_user_type}. \nConsider {get_user_pref}.\nDon't number the list."
           ],
           "vars": {}
         },
@@ -282,7 +282,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Select one recipe from {Get_list} for {Get_user_type} based on {Get_user_pref}.\nGive me a detailed step-by-step guide.\nInclude the ingredient list at the end."
+            "Select one recipe from {get_list} for {get_user_type} based on {get_user_pref}.\nGive me a detailed step-by-step guide.\nInclude the ingredient list at the end."
           ],
           "vars": {}
         },
@@ -321,7 +321,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Give me a list of top trending topics in {Get_focus_area}"
+            "Give me a list of top trending topics in {get_focus_area}"
           ],
           "vars": {}
         },
@@ -351,7 +351,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Filter {Get_trending_topics} for {Get_audience_type}.\nGive me only the topics.\nDon't number the list of topics."
+            "Filter {get_trending_topics} for {get_audience_type}.\nGive me only the topics.\nDon't number the list of topics."
           ],
           "vars": {}
         },
@@ -381,7 +381,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "\nSelect the topic for {Get_audience_type} from {Filter_content}. Don't include it in the content.\nChoose the content length for {Get_audience_type} and {Get_type}. Don't include it in the content.\nGenerate content on any one of the topics from {Filter_content}.\nDon't include a subject or topic, or heading."
+            "\nSelect the topic for {get_audience_type} from {filter_content}. Don't include it in the content.\nChoose the content length for {get_audience_type} and {get_type}. Don't include it in the content.\nGenerate content on any one of the topics from {filter_content}.\nDon't include a subject or topic, or heading."
           ],
           "vars": {}
         },
@@ -396,7 +396,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Create a catchy subject for {Generate_content}. It should be catchy to {Get_audience_type}."
+            "Create a catchy subject for {generate_content}. It should be catchy to {get_audience_type}."
           ],
           "vars": {}
         },
@@ -411,7 +411,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.FormatText,
         "config": {
           "inputs": [
-            "Subject: {Get_subject}\nBody: {Generate_content}"
+            "Subject: {get_subject}\nBody: {generate_content}"
           ],
           "vars": {}
         },
@@ -465,7 +465,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Get a list of things to do in {Get_destination} based on {Get_user_pref}"
+            "Get a list of things to do in {get_destination} based on {get_user_pref}"
           ],
           "vars": {}
         },
@@ -480,7 +480,7 @@ export const defaultBooks: IBook[] = [
         "type": EBlockType.AskAI,
         "config": {
           "inputs": [
-            "Create an itinerary from {Get_list} based on {Get_user_pref}.\nInclude breaks based on {Get_user_pref}\nDecide the number of items in the itinerary based on {Get_user_pref}"
+            "Create an itinerary from {get_list} based on {get_user_pref}.\nInclude breaks based on {get_user_pref}\nDecide the number of items in the itinerary based on {get_user_pref}"
           ],
           "vars": {}
         },
